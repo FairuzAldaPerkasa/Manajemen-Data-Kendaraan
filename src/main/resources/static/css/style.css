@@ -1,0 +1,45 @@
+body {
+  background-color: #f4f6f9;
+}
+
+.header-brand {
+  background-color: #ffffff;
+  font-weight: 700;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.icon-box {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #6fb3e0;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+.search-panel {
+  background-color: #fce9df;
+  border-radius: 6px;
+}
+
+.table-header th {
+  background-color: #2c3e6b;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.table td, .table th {
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+.action-link {
+  cursor: pointer;
+  color: #d9534f;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.action-link.detail { color: #337ab7; }
+.action-link.edit { color: #f0ad4e; }
+.action-link.delete { color: #d9534f; }

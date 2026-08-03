@@ -1,0 +1,47 @@
+name: CI - Data Kendaraan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Run unit & integration tests
+        run: mvn -B test
+
+      - name: Build artifact (JAR)
+        run: mvn -B clean package -DskipTests
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-kendaraan-jar
+          path: target/data-kendaraan.jar
+
+  docker-build:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t data-kendaraan:latest .
+
+      # Tahap deploy (push ke registry / server) dapat ditambahkan di sini
+      # sesuai target infrastruktur (Docker Hub, ECR, server SSH, dsb.)

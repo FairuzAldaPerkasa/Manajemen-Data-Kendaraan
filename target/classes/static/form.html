@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Aplikasi Data Kendaraan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header header-brand">
+      <span class="icon-box"></span> Aplikasi Data Kendaraan
+    </div>
+    <div class="card-body">
+      <h6 class="fw-bold mb-4" id="formTitle">Tambah Data Kendaraan</h6>
+
+      <div id="alertBox" class="alert d-none" role="alert"></div>
+
+      <form id="kendaraanForm" novalidate>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">No. Registrasi Kendaraan</label>
+            <input type="text" class="form-control" id="noRegistrasi" maxlength="20" required>
+            <div class="invalid-feedback">No Registrasi wajib diisi.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Tahun Pembuatan</label>
+            <input type="text" class="form-control" id="tahunPembuatan" maxlength="4" inputmode="numeric" pattern="[0-9]*">
+            <div class="invalid-feedback">Tahun Pembuatan harus angka, maksimal 4 digit.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Nama Pemilik</label>
+            <input type="text" class="form-control" id="namaPemilik" maxlength="100" required>
+            <div class="invalid-feedback">Nama Pemilik wajib diisi.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Kapasitas Silinder</label>
+            <input type="text" class="form-control" id="kapasitasSilinder" inputmode="numeric" pattern="[0-9]*">
+            <div class="invalid-feedback">Kapasitas Silinder harus berupa angka.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Merk Kendaraan</label>
+            <input type="text" class="form-control" id="merkKendaraan" maxlength="50">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Warna Kendaraan</label>
+            <input type="text" class="form-control" id="warnaKendaraan" maxlength="30">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Alamat Pemilik Kendaraan</label>
+            <textarea class="form-control" id="alamat" rows="4"></textarea>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Bahan Bakar</label>
+            <select class="form-select" id="bahanBakar">
+              <option value="" selected disabled>Pilih Bahan Bakar</option>
+              <option value="Merah">Merah</option>
+              <option value="Hitam">Hitam</option>
+              <option value="Biru">Biru</option>
+              <option value="Abu-Abu">Abu-Abu</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" id="btnSubmit" class="btn btn-primary btn-sm px-4">Simpan</button>
+          <button type="button" id="btnBack" class="btn btn-secondary btn-sm px-4">Kembali</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>

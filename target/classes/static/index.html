@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Aplikasi Data Kendaraan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header header-brand">
+      <span class="icon-box"></span> Aplikasi Data Kendaraan
+    </div>
+    <div class="card-body">
+
+      <!-- Search Panel -->
+      <div class="search-panel p-3 mb-3">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">No Registrasi</label>
+            <input type="text" id="searchNoRegistrasi" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Nama Pemilik</label>
+            <input type="text" id="searchNamaPemilik" class="form-control">
+          </div>
+        </div>
+        <div class="text-end mt-3">
+          <button id="btnSearch" class="btn btn-primary btn-sm">Search</button>
+          <button id="btnAdd" class="btn btn-primary btn-sm">Add</button>
+        </div>
+      </div>
+
+      <div id="alertBox" class="alert d-none" role="alert"></div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle" id="tblKendaraan">
+          <thead class="table-header">
+            <tr>
+              <th>No</th>
+              <th>No Registrasi</th>
+              <th>Nama Pemilik</th>
+              <th>Merk Kendaraan</th>
+              <th>Tahun Pembuatan</th>
+              <th>Kapasitas</th>
+              <th>Warna</th>
+              <th>Bahan Bakar</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tblBody">
+          </tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="text-center text-muted py-3 d-none">Tidak ada data ditemukan.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Konfirmasi Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center py-4">
+        <p class="mb-4">Anda yakin menghapus data <strong id="deleteTargetId"></strong> ?</p>
+        <button id="btnConfirmDelete" class="btn btn-primary btn-sm px-4">OK</button>
+        <button class="btn btn-secondary btn-sm px-4" data-bs-dismiss="modal">Batal</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/monitoring.js"></script>
+</body>
+</html>
