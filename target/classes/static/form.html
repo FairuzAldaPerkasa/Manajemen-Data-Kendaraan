@@ -48,7 +48,13 @@
           </div>
           <div class="col-md-6">
             <label class="form-label fw-semibold">Warna Kendaraan</label>
-            <input type="text" class="form-control" id="warnaKendaraan" maxlength="30">
+            <select class="form-select" id="warnaKendaraan">
+              <option value="" selected disabled>Pilih Bahan Bakar</option>
+              <option value="Merah">Merah</option>
+              <option value="Hitam">Hitam</option>
+              <option value="Biru">Biru</option>
+              <option value="Abu-Abu">Abu-Abu</option>
+            </select>
           </div>
 
           <div class="col-md-6">
@@ -57,13 +63,7 @@
           </div>
           <div class="col-md-6">
             <label class="form-label fw-semibold">Bahan Bakar</label>
-            <select class="form-select" id="bahanBakar">
-              <option value="" selected disabled>Pilih Bahan Bakar</option>
-              <option value="Merah">Merah</option>
-              <option value="Hitam">Hitam</option>
-              <option value="Biru">Biru</option>
-              <option value="Abu-Abu">Abu-Abu</option>
-            </select>
+           <input type="text" class="form-control" id="bahanBakar" maxlength="20">
           </div>
         </div>
 

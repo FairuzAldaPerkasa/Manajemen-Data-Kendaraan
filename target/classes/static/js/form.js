@@ -1,4 +1,4 @@
-let currentMode = "add"; // add | edit | detail
+let currentMode = "add";
 let currentId = null;
 
 $(document).ready(function () {
@@ -15,8 +15,6 @@ $(document).ready(function () {
   $("#btnBack").on("click", function () {
     window.location.href = "index.html";
   });
-
-  // Validasi numeric-only saat mengetik
   $("#tahunPembuatan, #kapasitasSilinder").on("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "");
   });
@@ -35,11 +33,11 @@ function setupModeUI() {
   } else if (currentMode === "edit") {
     $("#formTitle").text("Edit Data Kendaraan");
     $("#btnSubmit").text("Ubah");
-    $("#noRegistrasi").prop("readonly", true); // PK tidak boleh diubah
+    $("#noRegistrasi").prop("readonly", true);
   } else if (currentMode === "detail") {
     $("#formTitle").text("Detail Data Kendaraan");
     $("#btnSubmit").hide();
-    $("#kendaraanForm :input").prop("disabled", true);
+    $("#kendaraanForm :input").not("#btnBack").prop("disabled", true);
   }
 }
 
@@ -64,7 +62,6 @@ function validateForm() {
   let valid = true;
   const form = document.getElementById("kendaraanForm");
 
-  // Mandatory: No Registrasi & Nama Pemilik
   ["#noRegistrasi", "#namaPemilik"].forEach(function (sel) {
     const $el = $(sel);
     if (!$el.val() || $el.val().trim() === "") {
@@ -75,9 +72,8 @@ function validateForm() {
     }
   });
 
-  // Numeric checks
   const tahun = $("#tahunPembuatan").val();
-  if (tahun && (!/^\d{1,4}$/.test(tahun))) {
+  if (tahun && !/^\d{1,4}$/.test(tahun)) {
     $("#tahunPembuatan").addClass("is-invalid");
     valid = false;
   } else {
@@ -101,8 +97,12 @@ function buildPayload() {
     namaPemilik: $("#namaPemilik").val().trim(),
     alamat: $("#alamat").val(),
     merkKendaraan: $("#merkKendaraan").val(),
-    tahunPembuatan: $("#tahunPembuatan").val() ? parseInt($("#tahunPembuatan").val(), 10) : null,
-    kapasitasSilinder: $("#kapasitasSilinder").val() ? parseInt($("#kapasitasSilinder").val(), 10) : null,
+    tahunPembuatan: $("#tahunPembuatan").val()
+      ? parseInt($("#tahunPembuatan").val(), 10)
+      : null,
+    kapasitasSilinder: $("#kapasitasSilinder").val()
+      ? parseInt($("#kapasitasSilinder").val(), 10)
+      : null,
     warnaKendaraan: $("#warnaKendaraan").val(),
     bahanBakar: $("#bahanBakar").val(),
   };
