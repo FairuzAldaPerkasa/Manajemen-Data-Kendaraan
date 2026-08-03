@@ -2,15 +2,9 @@ package com.company.datakendaraan.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "kendaraan")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Kendaraan {
 
     @Id
@@ -46,4 +40,71 @@ public class Kendaraan {
     @Size(max = 30)
     @Column(name = "bahan_bakar", length = 30)
     private String bahanBakar;
+
+    public Kendaraan() {
+    }
+
+    public String getNoRegistrasi() {
+        return noRegistrasi;
+    }
+
+    public void setNoRegistrasi(String noRegistrasi) {
+        this.noRegistrasi = noRegistrasi;
+    }
+
+    public String getNamaPemilik() {
+        return namaPemilik;
+    }
+
+    public void setNamaPemilik(String namaPemilik) {
+        this.namaPemilik = namaPemilik;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getMerkKendaraan() {
+        return merkKendaraan;
+    }
+
+    public void setMerkKendaraan(String merkKendaraan) {
+        this.merkKendaraan = merkKendaraan;
+    }
+
+    public Integer getTahunPembuatan() {
+        return tahunPembuatan;
+    }
+
+    public void setTahunPembuatan(Integer tahunPembuatan) {
+        this.tahunPembuatan = tahunPembuatan;
+    }
+
+    public Integer getKapasitasSilinder() {
+        return kapasitasSilinder;
+    }
+
+    public void setKapasitasSilinder(Integer kapasitasSilinder) {
+        this.kapasitasSilinder = kapasitasSilinder;
+    }
+
+    public String getWarnaKendaraan() {
+        return warnaKendaraan;
+    }
+
+    public void setWarnaKendaraan(String warnaKendaraan) {
+        this.warnaKendaraan = warnaKendaraan;
+    }
+
+    public String getBahanBakar() {
+        return bahanBakar;
+    }
+
+    public void setBahanBakar(String bahanBakar) {
+        this.bahanBakar = bahanBakar;
+    }
 }
